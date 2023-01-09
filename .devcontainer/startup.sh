@@ -20,21 +20,21 @@ fi
 FIRST_CHAR=$(head -c 1 ./README.md)
 if [ "$FIRST_CHAR" = "[" ]
 then
+    cp ./.devcontainer/.bashrc ~/.bashrc
+    sudo pip3 install cpplint
     ex -s -c 1m3 -c w -c q ./README.md
     sed -i "3G" ./README.md
     sed -i "s/<OWNER>/$GITHUB_REPO_OWNER/g" ./README.md
     sed -i "s/<REPOSITORY>/$GITHUB_REPO_NAME/g" ./README.md
-    cp ./config/.bashrc ~/.bashrc
     git add -A
     git commit -m "updated the badges"
     git push origin main
-    echo "README.md updated."
     # shellcheck disable=SC1090
-    exec bash
+    source ~/.bashrc 
+    echo "README.md updated."
 elif [ "$FIRST_CHAR" = "#" ]
 then
     echo "Already changed."
 else
     echo "Not what it should be!"
-    exit 1
 fi

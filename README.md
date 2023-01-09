@@ -1,4 +1,4 @@
-# ICS3U ⇢ Unit #1-01
+# ICS3U ⇢ Intro-03
 
 [![Mr Coxall's Super Linter](https://github.com/<OWNER>/<REPOSITORY>/workflows/Mr%20Coxall's%20Super%20Linter/badge.svg)](https://github.com/<OWNER>/<REPOSITORY>/actions)
 
@@ -6,21 +6,17 @@
 
 ---
 
-**NOTES ON INITIAL LOAD:**
-- remember to run the startup.sh script in the terminal, to fix the README.md file
-  ```console
-  bash ./config/startup.sh
-  ```
-- if you are coding in C/C++
-  - when you run or debug a C/C++ program for the first time, the IDE will ask what compiler to use; select the 1st choice (C/C++: g++)
-  - the IDE will place a task.json file in the .vscode directory
-
----
-
 **REMEMBER:**
-- ensure you commit your code after every major change, to keep your history
+- ensure you commit your code after every major change, to keep your history and not loose anything
 ```console
   git add -A
   git commit -m "𝑐𝑜𝑚𝑚𝑖𝑡 𝑚𝑒𝑠𝑠𝑎𝑔𝑒"
   git push origin main
 ```
+
+---
+
+**NOTES ON INITIAL LOAD for C/C++:**
+- ensure the C/C++ extension is loaded correctly (you might need to reload it)
+- when you run or debug a C/C++ program for the first time, the IDE will ask what compiler to use; select the 1st choice (C/C++: g++)
+- the IDE will place a task.json file in the .vscode directory
