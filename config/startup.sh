@@ -1,10 +1,5 @@
 #!/bin/bash
 
-sudo apt-get update
-export DEBIAN_FRONTEND=noninteractive
-sudo apt-get -y install --no-install-recommends build-essential gdb
-sudo pip3 install cpplint
-
 # now update the README.md file
 GITHUB_URL=$(git remote get-url origin)
 #GITHUB_USER=$(git config user.name)
@@ -29,13 +24,13 @@ then
     sed -i "3G" ./README.md
     sed -i "s/<OWNER>/$GITHUB_REPO_OWNER/g" ./README.md
     sed -i "s/<REPOSITORY>/$GITHUB_REPO_NAME/g" ./README.md
-    cp ./.devcontainer/.bashrc ~/.bashrc
-    # shellcheck disable=SC1090
-    #source ~/.bashrc
+    cp ./config/.bashrc ~/.bashrc
     git add -A
     git commit -m "updated the badges"
     git push origin main
     echo "README.md updated."
+    # shellcheck disable=SC1090
+    exec bash
 elif [ "$FIRST_CHAR" = "#" ]
 then
     echo "Already changed."
